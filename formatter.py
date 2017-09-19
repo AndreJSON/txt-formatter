@@ -17,6 +17,8 @@ def processLine(fileLine):
 		fileLine = fileLine[cutOff:]
 		if len(fileLine) == 0:
 			break
+		elif fileLine[0] == " ":
+			fileLine = fileLine[1:]
 
 def main():
 	with open(sys.argv[1], "r") as txt: 
