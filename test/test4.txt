@@ -1,0 +1,9 @@
+TITLE
+
+*divider with text
+
+Some text that should at least be long enough to force the formatter to break it into more than one line.
+
+*
+
+More text than an intentional trailing newline.

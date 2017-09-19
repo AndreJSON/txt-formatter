@@ -1,10 +1,18 @@
 import sys
+import math
 LINE_LIMIT = 70
+DIVIDER = "*"
 
 
-def processLine(fileLine):
-	if len(fileLine) > 0 and fileLine[-1] == "\n":
-		fileLine = fileLine[:-1]
+def expandDivider(fileLine):
+	line = fileLine[1:]
+	if len(line) > 0:
+		line = " " + line + " "
+	numStars = (LINE_LIMIT - len(line)) / 2
+	line = (DIVIDER * math.floor(numStars)) + line + (DIVIDER * math.ceil(numStars))
+	print(line)
+
+def splitLine(fileLine):
 	while True:
 		line = fileLine[:LINE_LIMIT]
 		if len(line) < LINE_LIMIT:
@@ -19,6 +27,14 @@ def processLine(fileLine):
 			break
 		elif fileLine[0] == " ":
 			fileLine = fileLine[1:]
+
+def processLine(fileLine):
+	if fileLine[-1] == "\n":
+		fileLine = fileLine[:-1]
+	if len(fileLine) > 0 and fileLine[0] == DIVIDER:
+		expandDivider(fileLine)
+	else:
+		splitLine(fileLine)
 
 def main():
 	with open(sys.argv[1], "r") as txt: 
