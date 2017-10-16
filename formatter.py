@@ -41,4 +41,5 @@ def main():
 		for fileLine in txt:
 			processLine(fileLine)
 
-main()
+if __name__ == "__main__":
+	main()
